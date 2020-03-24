@@ -1,6 +1,6 @@
 {
-    "name": "react-webpack-template",
-    "version": "0.0.7",
+    "name": "gherkin-banking-client",
+    "version": "0.0.1",
     "description": "🏁 A template to get started quickly with a React project.",
     "main": "index.js",
     "scripts": {
