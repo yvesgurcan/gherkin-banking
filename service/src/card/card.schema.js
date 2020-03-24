@@ -1,14 +1,21 @@
 import { gql } from 'apollo-server';
 
-const CardFields = `
-    walletId: ID
-    userId: ID
+const CreateCardFields = `
+    walletId: ID!
+    userId: ID!
     balance: Float
     currency: Currency
+`;
+
+const CardFields = `
+    ${CreateCardFields}
+    id: ID
     number: String
     expiration: String
     ccv: String
     isBlocked: Boolean
+    createdAt: String
+    updatedAt: String
 
 `;
 
@@ -20,9 +27,6 @@ export default gql`
     }
 
     type Card {
-        id: ID
-        createdAt: String
-        updatedAt: String
         ${CardFields}
     }
 
@@ -31,6 +35,6 @@ export default gql`
     }
 
     type Mutation {
-        createCard(${CardFields}): Card
+        createCard(${CreateCardFields}): Card
     }
 `;

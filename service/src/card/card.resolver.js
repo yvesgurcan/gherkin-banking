@@ -6,5 +6,7 @@ export default {
     },
     Mutation: {
         createCard
+        // blockCard
+        // unblockCard
     }
 };

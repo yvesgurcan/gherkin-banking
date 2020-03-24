@@ -1,15 +1,21 @@
 import { gql } from 'apollo-server';
 
-const TransferFields = `
-    amount: Float
+const CreateTransferFields = `
+    amount: Float!
+    originCurrency: Currency!
+    originEntityId: ID!
+    originEntityType: String!
+    targetCurrency: Currency!
+    targetEntityId: ID!
+    targetEntityType: String!
     conversionFee: Float
-    originCurrency: Currency
-    originEntityId: ID
-    originEntityType: String
-    targetCurrency: Currency
-    targetEntityId: ID
-    targetEntityType: String
+`;
 
+const TransferFields = `
+    ${CreateTransferFields}
+    id: ID
+    createdAt: String
+    updatedAt: String
 `;
 
 export default gql`
@@ -20,9 +26,6 @@ export default gql`
     }
 
     type Transfer {
-        id: ID
-        createdAt: String
-        updatedAt: String
         ${TransferFields}
     }
 
@@ -31,6 +34,6 @@ export default gql`
     }
 
     type Mutation {
-        createTransfer(${TransferFields}): Transfer
+        createTransfer(${CreateTransferFields}): Transfer
     }
 `;
