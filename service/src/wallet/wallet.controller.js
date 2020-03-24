@@ -25,3 +25,19 @@ export async function createWallet(_, wallet) {
         parseMongooseErrors(error);
     }
 }
+
+export async function addToWallet(_, amount) {
+    connect();
+    try {
+        // find card first, then add amount to balance
+        const updatedBalance = amount;
+        const result = await WalletModel.findByIdAndUpdate(id, {
+            balance: updatedBalance
+        });
+        close();
+        return result;
+    } catch (error) {
+        close();
+        parseMongooseErrors(error);
+    }
+}

@@ -31,5 +31,6 @@ export default gql`
 
     type Mutation {
         createWallet(${CreateWalletFields}): Wallet
+        addToWallet(amount: Float): Card
     }
 `;

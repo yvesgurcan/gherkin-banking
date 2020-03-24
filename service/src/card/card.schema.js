@@ -36,5 +36,6 @@ export default gql`
 
     type Mutation {
         createCard(${CreateCardFields}): Card
+        addToCard(amount: Float): Card
     }
 `;

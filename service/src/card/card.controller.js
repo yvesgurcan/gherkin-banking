@@ -25,3 +25,19 @@ export async function createCard(_, card) {
         parseMongooseErrors(error);
     }
 }
+
+export async function addToCard(_, amount) {
+    connect();
+    try {
+        // find card first, then add amount to balance
+        const updatedBalance = amount;
+        const result = await CardModel.findByIdAndUpdate(id, {
+            balance: updatedBalance
+        });
+        close();
+        return result;
+    } catch (error) {
+        close();
+        parseMongooseErrors(error);
+    }
+}
