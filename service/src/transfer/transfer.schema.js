@@ -5,10 +5,10 @@ const CreateTransferFields = `
     conversionFee: Float
     originCurrency: Currency
     originEntityId: ID!
-    originEntityType: String!
+    originEntityType: EntityType!
     targetCurrency: Currency
     targetEntityId: ID!
-    targetEntityType: String!
+    targetEntityType: EntityType!
 `;
 
 const TransferFields = `
@@ -23,6 +23,11 @@ export default gql`
         USD
         GBP
         EUR
+    }
+
+    enum EntityType {
+        CARD
+        WALLET
     }
 
     type Transfer {
