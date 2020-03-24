@@ -1,11 +1,16 @@
-# React app
 
-## Dependencies
+🥒 Bring the power of the cucumber to your wallet!
 
+# Client
+
+## Main dependencies
+
+- React
 - React Router
 - Styled Components
-- Babel config
-- Prettier config
+- Webpack
+- Babel 
+- Prettier
 
 ## Setup
 
