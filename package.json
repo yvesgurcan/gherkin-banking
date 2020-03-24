@@ -1,7 +1,7 @@
 {
     "name": "gherkin-banking-client",
     "version": "0.0.1",
-    "description": "🏁 A template to get started quickly with a React project.",
+    "description": "🥒 Bring the power of the cucumber to your wallet!",
     "main": "index.js",
     "scripts": {
         "start": "webpack-dev-server",
