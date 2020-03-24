@@ -30,7 +30,7 @@ const cardSchema = new mongoose.Schema(
         },
         expiration: {
             type: Date,
-            default: new Date()
+            default: new Date() // add 1 month
         },
         ccv: {
             type: String,

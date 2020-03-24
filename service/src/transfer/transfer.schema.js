@@ -2,13 +2,13 @@ import { gql } from 'apollo-server';
 
 const CreateTransferFields = `
     amount: Float!
-    originCurrency: Currency!
+    conversionFee: Float
+    originCurrency: Currency
     originEntityId: ID!
     originEntityType: String!
-    targetCurrency: Currency!
+    targetCurrency: Currency
     targetEntityId: ID!
     targetEntityType: String!
-    conversionFee: Float
 `;
 
 const TransferFields = `

@@ -10,6 +10,7 @@ export async function connect() {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });
+        // mongoose.connection.db.dropDatabase();
     } catch (error) {
         console.error('Could not connect to DB', error);
     }

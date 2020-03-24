@@ -14,6 +14,7 @@ export async function getCards() {
 }
 
 export async function createCard(_, card) {
+    // prevent negative balance
     connect();
     try {
         const result = await CardModel.create(card);

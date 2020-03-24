@@ -14,6 +14,7 @@ export async function getWallets() {
 }
 
 export async function createWallet(_, wallet) {
+    // prevent negative balance
     connect();
     try {
         const result = await WalletModel.create(wallet);
