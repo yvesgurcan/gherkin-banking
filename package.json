@@ -19,5 +19,8 @@
         "mongoose": "^5.9.2",
         "nodemon": "^2.0.2",
         "concurrently": "^5.1.0"
+    },
+    "devDependencies": {
+        "apollo-server-testing": "^2.11.0"
     }
 }
