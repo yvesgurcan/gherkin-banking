@@ -67,7 +67,7 @@ In the specs, a user represents a frontend client, the API should output the ent
 -   [x] A user can create a card connected to one of his wallets
 -   [x] A user can list all his cards
 -   [x] A user can list all his wallets
--   [ ] A user can load or unload money on his card from the wallet
+-   [x] A user can load or unload money on his card from the wallet
 -   [x] A user can block or unblock a card
 -   [ ] Blocking a card will unload all the money into the right wallet
 -   [x] There is a master wallet per currency
