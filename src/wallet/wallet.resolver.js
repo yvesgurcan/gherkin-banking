@@ -1,4 +1,9 @@
-import { getWallets, createWallet, addToWallet } from './wallet.controller';
+import {
+    getWallets,
+    createWallet,
+    createMasterWallets,
+    addToWallet
+} from './wallet.controller';
 
 export default {
     Query: {
@@ -6,6 +11,7 @@ export default {
     },
     Mutation: {
         createWallet,
+        createMasterWallets,
         addToWallet
     }
 };

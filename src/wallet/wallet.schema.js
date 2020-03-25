@@ -3,13 +3,13 @@ import { gql } from 'apollo-server';
 const CreateWalletFields = `
     balance: Float
     currency: Currency
-    isMaster: Boolean
 `;
 
 const WalletFields = `
     ${CreateWalletFields}
     id: ID
     companyId: ID
+    isMaster: Boolean
     createdAt: String
     updatedAt: String
 `;
@@ -31,6 +31,7 @@ export default gql`
 
     type Mutation {
         createWallet(${CreateWalletFields}): Wallet
+        createMasterWallets: [Wallet]
         addToWallet(amount: Float): Card
     }
 `;

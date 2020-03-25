@@ -1,11 +1,10 @@
 import mongoose from 'mongoose';
-import { ObjectId } from 'mongodb';
+import { castId, autoIncrement } from '../util';
 
-const walletSchema = new mongoose.Schema(
+export const walletSchema = new mongoose.Schema(
     {
         companyId: {
-            type: ObjectId,
-            required: [true, 'Company identifier is required.']
+            type: castId()
         },
         balance: {
             type: Number,
@@ -27,8 +26,6 @@ const walletSchema = new mongoose.Schema(
     }
 );
 
-walletSchema.virtual('id').get(function() {
-    return this._id.toHexString();
-});
+autoIncrement(walletSchema, 'wallet_id');
 
 export default mongoose.model('Wallet', walletSchema);
