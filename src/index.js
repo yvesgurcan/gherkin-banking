@@ -1,15 +1,17 @@
-import { ApolloServer } from 'apollo-server';
-import { mergeSchemas } from 'graphql-tools';
-import schemas from './schema.js';
-import resolvers from './resolvers.js';
+import { startServer } from './server';
+import { createDatabaseConnection, closeDatabaseConnection } from './database';
 
-const schema = mergeSchemas({
-    schemas,
-    resolvers
-});
+startServer();
+createDatabaseConnection();
 
-const server = new ApolloServer({ schema, resolvers });
+async function exitGracefully() {
+    await closeDatabaseConnection();
+    process.exit(0);
+}
 
-server.listen().then(({ url }) => {
-    console.log(`🚀  Server ready at ${url}`);
-});
+process
+    // cleanup when process is terminated
+    .on('SIGINT', exitGracefully)
+    .on('SIGTERM', exitGracefully)
+    // cleanup when process is restarted
+    .on('SIGHUP', exitGracefully);
