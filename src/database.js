@@ -5,16 +5,13 @@ import { ApolloError } from 'apollo-server';
 mongoose.set('useFindAndModify', false);
 
 export async function createDatabaseConnection(dbName = 'gherkin-banking') {
-    try {
-        const url = `mongodb://35.164.133.55/${dbName}`;
-        await mongoose.connect(url, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
-        console.log(`🌿  Mongoose Database ready at ${url}.`);
-    } catch (error) {
-        console.error('Could not connect to database', error);
-    }
+    const url = `mongodb://35.164.133.55/${dbName}`;
+    const connection = await mongoose.connect(url, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    });
+    console.log(`🌿  Mongoose Database ready at ${url}.`);
+    return connection;
 }
 
 export async function closeDatabaseConnection() {
@@ -22,8 +19,9 @@ export async function closeDatabaseConnection() {
     console.log('👋  Disconnected from Mongoose Database.');
 }
 
-export function dropDatabase() {
-    mongoose.connection.db.dropDatabase();
+export async function dropDatabase() {
+    await mongoose.connection.db.dropDatabase();
+    console.log('💥  Mongoose Database dropped.');
 }
 
 export function parseDatabaseErrors(error) {

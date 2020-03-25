@@ -1,7 +1,6 @@
 import { gql } from 'apollo-server';
 
 const CreateWalletFields = `
-    companyId: ID!
     balance: Float
     currency: Currency
     isMaster: Boolean
@@ -10,6 +9,7 @@ const CreateWalletFields = `
 const WalletFields = `
     ${CreateWalletFields}
     id: ID
+    companyId: ID
     createdAt: String
     updatedAt: String
 `;

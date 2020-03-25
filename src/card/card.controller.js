@@ -1,19 +1,19 @@
 import { parseDatabaseErrors } from '../database';
 import CardModel from './card.model.js';
 
-export async function getCards() {
+export async function getCards(_, __, { userId }) {
     try {
-        const result = await CardModel.find();
+        const result = await CardModel.find({ userId });
         return result;
     } catch (error) {
         parseDatabaseErrors(error);
     }
 }
 
-export async function createCard(_, card) {
+export async function createCard(_, card, { userId }) {
     // prevent negative balance
     try {
-        const result = await CardModel.create(card);
+        const result = await CardModel.create({ ...card, userId });
         return result;
     } catch (error) {
         parseDatabaseErrors(error);

@@ -8,9 +8,24 @@ const schema = mergeSchemas({
     resolvers
 });
 
-export const server = new ApolloServer({ schema, resolvers });
+export const serverConfig = {
+    schema,
+    context: a => {
+        console.log('yolo', a);
+        return {
+            userId: req.headers['User-Id'],
+            companyId: req.headers['Company-Id']
+        };
+    }
+};
 
-export async function startServer(port = '4001') {
+export const instantiateServer = (customConfig = {}) =>
+    new ApolloServer({
+        ...serverConfig,
+        ...customConfig
+    });
+
+export async function startServer(server = instantiateServer(), port = '4001') {
     try {
         const { url } = await server.listen({ port });
         console.log(`🚀  Apollo Server ready at ${url}.`);

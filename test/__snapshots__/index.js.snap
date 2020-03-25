@@ -1,0 +1,201 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Gherkin Banking: Wallet: Company wallet: Create a wallet with a balance 1`] = `
+Object {
+  "data": Object {
+    "createWallet": Object {
+      "balance": 10.87,
+      "companyId": "5e7abc6792323e650e6c76e2",
+      "currency": "USD",
+      "isMaster": false,
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Gherkin Banking: Wallet: Company wallet: Create a wallet with a currency 1`] = `
+Object {
+  "data": Object {
+    "createWallet": Object {
+      "balance": 0,
+      "companyId": "5e7abc6792323e650e6c76e2",
+      "currency": "GBP",
+      "isMaster": false,
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Gherkin Banking: Wallet: Company wallet: Create a wallet with a currency and a balance 1`] = `
+Object {
+  "data": Object {
+    "createWallet": Object {
+      "balance": 94.37,
+      "companyId": "5e7abc6792323e650e6c76e2",
+      "currency": "EUR",
+      "isMaster": false,
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Gherkin Banking: Wallet: Company wallet: Create a wallet without variables 1`] = `
+Object {
+  "data": Object {
+    "createWallet": Object {
+      "balance": 0,
+      "companyId": "5e7abc6792323e650e6c76e2",
+      "currency": "USD",
+      "isMaster": false,
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Gherkin Banking: Wallet: Company wallet: Fetch company wallets 1`] = `
+Object {
+  "data": Object {
+    "wallets": Array [
+      Object {
+        "balance": 0,
+        "companyId": "5e7abc6792323e650e6c76e2",
+        "currency": "USD",
+        "isMaster": false,
+      },
+      Object {
+        "balance": 10.87,
+        "companyId": "5e7abc6792323e650e6c76e2",
+        "currency": "USD",
+        "isMaster": false,
+      },
+      Object {
+        "balance": 0,
+        "companyId": "5e7abc6792323e650e6c76e2",
+        "currency": "GBP",
+        "isMaster": false,
+      },
+      Object {
+        "balance": 94.37,
+        "companyId": "5e7abc6792323e650e6c76e2",
+        "currency": "EUR",
+        "isMaster": false,
+      },
+    ],
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Gherkin Banking: Wallet: Master wallet: Create a master wallet 1`] = `
+Object {
+  "data": Object {
+    "createWallet": Object {
+      "balance": 0,
+      "companyId": "5e7abc6792323e650e6c76e2",
+      "currency": "USD",
+      "isMaster": true,
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Gherkin Banking: Wallet: Master wallet: Create a master wallet with a balance 1`] = `
+Object {
+  "data": Object {
+    "createWallet": Object {
+      "balance": 48.31,
+      "companyId": "5e7abc6792323e650e6c76e2",
+      "currency": "USD",
+      "isMaster": true,
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Gherkin Banking: Wallet: Master wallet: Create a master wallet with a currency 1`] = `
+Object {
+  "data": Object {
+    "createWallet": Object {
+      "balance": 0,
+      "companyId": "5e7abc6792323e650e6c76e2",
+      "currency": "EUR",
+      "isMaster": true,
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Gherkin Banking: Wallet: Master wallet: Create a master wallet with a currency and a balance 1`] = `
+Object {
+  "data": Object {
+    "createWallet": Object {
+      "balance": 78.56,
+      "companyId": "5e7abc6792323e650e6c76e2",
+      "currency": "GBP",
+      "isMaster": true,
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;

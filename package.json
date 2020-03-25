@@ -5,9 +5,11 @@
     "main": "index.js",
     "scripts": {
         "start": "concurrently --kill-others \"npm run start:service\" \"npm run start:db\"",
-        "start:service": "nodemon -r esm src",
+        "start:service": "nodemon --signal SIGHUP -r esm src",
         "start:db": "mongod --dbpath=/data",
-        "start:db:quiet": "mongod --dbpath=/data --quiet"
+        "start:db:quiet": "mongod --dbpath=/data --quiet",
+        "test": "jest",
+        "test:update": "jest --updateSnapshot"
     },
     "author": "Yves Gurcan",
     "license": "MIT",
@@ -21,6 +23,10 @@
         "concurrently": "^5.1.0"
     },
     "devDependencies": {
-        "apollo-server-testing": "^2.11.0"
+        "@babel/preset-env": "^7.9.0",
+        "apollo-server-testing": "^2.11.0",
+        "babel-jest": "^25.1.0",
+        "jest": "^25.1.0",
+        "mongoose-auto-increment": "^5.0.1"
     }
 }

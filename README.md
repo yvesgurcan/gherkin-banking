@@ -21,6 +21,16 @@ An Apollo server will start listening for requests at `localhost:4000` and a Mon
 
 You can start the service on its own with `npm run start:service` or the database only at `npm run start:db`.
 
+## Features
+
+-   No need to sanitize input. User can not add unallowed fields to the database thanks to the strongly typed GraphQL interface.
+
+## Other things I would do with more time
+
+-   Prevent regular users to create master wallets.
+-   Make sure that no more than 1 master wallet can be created per currency.
+-   Check if the `User-Id` and `Company-Id` are valid and authorized.
+
 # Assignment
 
 Our developers need to be experts at designing the right solution for any problem we have. As you would be a backend developper, your work will mostly be giving our user the power over their financial data, and this will be done through APIs.
