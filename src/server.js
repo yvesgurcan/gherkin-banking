@@ -10,13 +10,10 @@ const schema = mergeSchemas({
 
 export const serverConfig = {
     schema,
-    context: a => {
-        console.log('yolo', a);
-        return {
-            userId: req.headers['User-Id'],
-            companyId: req.headers['Company-Id']
-        };
-    }
+    context: ({ req }) => ({
+        userId: req.headers['user-id'],
+        companyId: req.headers['company-id']
+    })
 };
 
 export const instantiateServer = (customConfig = {}) =>
