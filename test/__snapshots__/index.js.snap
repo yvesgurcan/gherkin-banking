@@ -6,11 +6,32 @@ Object {
     "blockCard": Object {
       "balance": 0,
       "ccv": "111",
-      "currency": "USD",
+      "currency": "GBP",
       "expiration": "1609459200000",
       "isBlocked": true,
       "number": "1111111111111111",
       "userId": "5e7abd771f06a07014d872c0",
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Gherkin Banking: Card: Card can be blocked 2`] = `
+Object {
+  "data": Object {
+    "walletById": Object {
+      "balance": 12.62,
+      "companyId": "5e7abc6792323e650e6c76e2",
+      "currency": "GBP",
+      "id": "3",
+      "isMaster": false,
     },
   },
   "errors": undefined,
@@ -29,7 +50,7 @@ Object {
     "unblockCard": Object {
       "balance": 0,
       "ccv": "111",
-      "currency": "USD",
+      "currency": "GBP",
       "expiration": "1609459200000",
       "isBlocked": false,
       "number": "1111111111111111",
@@ -132,7 +153,7 @@ exports[`Gherkin Banking: Card: Create a card with a walletId, a balance, and a 
 Object {
   "data": Object {
     "createCard": Object {
-      "balance": 67.94,
+      "balance": 12.62,
       "ccv": "111",
       "currency": "GBP",
       "expiration": "1609459200000",
@@ -177,7 +198,7 @@ Object {
         "walletId": "2",
       },
       Object {
-        "balance": 67.94,
+        "balance": 0,
         "ccv": "111",
         "currency": "GBP",
         "expiration": "1609459200000",
@@ -198,12 +219,288 @@ Object {
 }
 `;
 
+exports[`Gherkin Banking: Transfer: Transfer from card to wallet 1`] = `
+Object {
+  "data": Object {
+    "createTransfer": Object {
+      "amount": 11.08,
+      "conversionFee": 0,
+      "originCurrency": "USD",
+      "originEntityId": "2",
+      "originEntityType": "CARD",
+      "targetCurrency": "USD",
+      "targetEntityId": "2",
+      "targetEntityType": "WALLET",
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Gherkin Banking: Transfer: Transfer from card to wallet 2`] = `
+Object {
+  "data": Object {
+    "walletById": Object {
+      "balance": 70.51,
+      "companyId": "5e7abc6792323e650e6c76e2",
+      "currency": "USD",
+      "id": "2",
+      "isMaster": false,
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Gherkin Banking: Transfer: Transfer from card to wallet 3`] = `
+Object {
+  "data": Object {
+    "cardById": Object {
+      "balance": 74.3,
+      "ccv": "111",
+      "currency": "USD",
+      "expiration": "1609459200000",
+      "isBlocked": false,
+      "number": "1111111111111111",
+      "userId": "5e7abd771f06a07014d872c0",
+      "walletId": "2",
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Gherkin Banking: Transfer: Transfer from wallet to card 1`] = `
+Object {
+  "data": Object {
+    "createTransfer": Object {
+      "amount": 17.44,
+      "conversionFee": 0,
+      "originCurrency": "USD",
+      "originEntityId": "2",
+      "originEntityType": "WALLET",
+      "targetCurrency": "USD",
+      "targetEntityId": "2",
+      "targetEntityType": "CARD",
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Gherkin Banking: Transfer: Transfer from wallet to card 2`] = `
+Object {
+  "data": Object {
+    "walletById": Object {
+      "balance": 59.43,
+      "companyId": "5e7abc6792323e650e6c76e2",
+      "currency": "USD",
+      "id": "2",
+      "isMaster": false,
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Gherkin Banking: Transfer: Transfer from wallet to card 3`] = `
+Object {
+  "data": Object {
+    "cardById": Object {
+      "balance": 85.38,
+      "ccv": "111",
+      "currency": "USD",
+      "expiration": "1609459200000",
+      "isBlocked": false,
+      "number": "1111111111111111",
+      "userId": "5e7abd771f06a07014d872c0",
+      "walletId": "2",
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Gherkin Banking: Transfer: Transfer from wallet to wallet 1`] = `
+Object {
+  "data": Object {
+    "createTransfer": Object {
+      "amount": 21.32,
+      "conversionFee": 0,
+      "originCurrency": "USD",
+      "originEntityId": "2",
+      "originEntityType": "WALLET",
+      "targetCurrency": "USD",
+      "targetEntityId": "1",
+      "targetEntityType": "WALLET",
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Gherkin Banking: Transfer: Transfer from wallet to wallet 2`] = `
+Object {
+  "data": Object {
+    "walletById": Object {
+      "balance": 49.19,
+      "companyId": "5e7abc6792323e650e6c76e2",
+      "currency": "USD",
+      "id": "2",
+      "isMaster": false,
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Gherkin Banking: Transfer: Transfer from wallet to wallet 3`] = `
+Object {
+  "data": Object {
+    "walletById": Object {
+      "balance": 21.32,
+      "companyId": "5e7abc6792323e650e6c76e2",
+      "currency": "USD",
+      "id": "1",
+      "isMaster": false,
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Gherkin Banking: Transfer: Transfer from wallet to wallet with different currencies 1`] = `
+Object {
+  "data": Object {
+    "createTransfer": Object {
+      "amount": 10.61,
+      "conversionFee": 0.32,
+      "originCurrency": "GBP",
+      "originEntityId": "3",
+      "originEntityType": "WALLET",
+      "targetCurrency": "EUR",
+      "targetEntityId": "4",
+      "targetEntityType": "WALLET",
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Gherkin Banking: Transfer: Transfer from wallet to wallet with different currencies 2`] = `
+Object {
+  "data": Object {
+    "walletById": Object {
+      "balance": 2.62,
+      "companyId": "5e7abc6792323e650e6c76e2",
+      "currency": "GBP",
+      "id": "3",
+      "isMaster": false,
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
+exports[`Gherkin Banking: Transfer: Transfer from wallet to wallet with different currencies 3`] = `
+Object {
+  "data": Object {
+    "walletById": Object {
+      "balance": 104.98,
+      "companyId": "5e7abc6792323e650e6c76e2",
+      "currency": "EUR",
+      "id": "4",
+      "isMaster": false,
+    },
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;
+
 exports[`Gherkin Banking: Wallet: Create a wallet with a balance 1`] = `
 Object {
-  "data": undefined,
-  "errors": Array [
-    [ValidationError: Unknown argument "isMaster" on field "createWallet" of type "Mutation".],
-  ],
+  "data": Object {
+    "createWallet": Object {
+      "balance": 76.87,
+      "companyId": "5e7abc6792323e650e6c76e2",
+      "currency": "USD",
+      "id": "2",
+      "isMaster": false,
+    },
+  },
+  "errors": undefined,
   "extensions": undefined,
   "http": Object {
     "headers": Headers {
@@ -215,10 +512,16 @@ Object {
 
 exports[`Gherkin Banking: Wallet: Create a wallet with a currency 1`] = `
 Object {
-  "data": undefined,
-  "errors": Array [
-    [ValidationError: Unknown argument "isMaster" on field "createWallet" of type "Mutation".],
-  ],
+  "data": Object {
+    "createWallet": Object {
+      "balance": 0,
+      "companyId": "5e7abc6792323e650e6c76e2",
+      "currency": "GBP",
+      "id": "3",
+      "isMaster": false,
+    },
+  },
+  "errors": undefined,
   "extensions": undefined,
   "http": Object {
     "headers": Headers {
@@ -230,10 +533,16 @@ Object {
 
 exports[`Gherkin Banking: Wallet: Create a wallet with a currency and a balance 1`] = `
 Object {
-  "data": undefined,
-  "errors": Array [
-    [ValidationError: Unknown argument "isMaster" on field "createWallet" of type "Mutation".],
-  ],
+  "data": Object {
+    "createWallet": Object {
+      "balance": 94.37,
+      "companyId": "5e7abc6792323e650e6c76e2",
+      "currency": "EUR",
+      "id": "4",
+      "isMaster": false,
+    },
+  },
+  "errors": undefined,
   "extensions": undefined,
   "http": Object {
     "headers": Headers {
@@ -245,10 +554,16 @@ Object {
 
 exports[`Gherkin Banking: Wallet: Create a wallet without variables 1`] = `
 Object {
-  "data": undefined,
-  "errors": Array [
-    [ValidationError: Unknown argument "isMaster" on field "createWallet" of type "Mutation".],
-  ],
+  "data": Object {
+    "createWallet": Object {
+      "balance": 0,
+      "companyId": "5e7abc6792323e650e6c76e2",
+      "currency": "USD",
+      "id": "1",
+      "isMaster": false,
+    },
+  },
+  "errors": undefined,
   "extensions": undefined,
   "http": Object {
     "headers": Headers {
@@ -266,28 +581,21 @@ Object {
         "balance": 0,
         "companyId": null,
         "currency": "USD",
-        "id": "1",
+        "id": "5",
         "isMaster": true,
       },
       Object {
         "balance": 0,
         "companyId": null,
         "currency": "EUR",
-        "id": "2",
+        "id": "6",
         "isMaster": true,
       },
       Object {
         "balance": 0,
         "companyId": null,
         "currency": "GBP",
-        "id": "3",
-        "isMaster": true,
-      },
-      Object {
-        "balance": 0,
-        "companyId": null,
-        "currency": "USD",
-        "id": "4",
+        "id": "7",
         "isMaster": true,
       },
     ],
@@ -305,7 +613,36 @@ Object {
 exports[`Gherkin Banking: Wallet: Fetch company wallets 1`] = `
 Object {
   "data": Object {
-    "wallets": Array [],
+    "wallets": Array [
+      Object {
+        "balance": 0,
+        "companyId": "5e7abc6792323e650e6c76e2",
+        "currency": "USD",
+        "id": "1",
+        "isMaster": false,
+      },
+      Object {
+        "balance": 76.87,
+        "companyId": "5e7abc6792323e650e6c76e2",
+        "currency": "USD",
+        "id": "2",
+        "isMaster": false,
+      },
+      Object {
+        "balance": 0,
+        "companyId": "5e7abc6792323e650e6c76e2",
+        "currency": "GBP",
+        "id": "3",
+        "isMaster": false,
+      },
+      Object {
+        "balance": 94.37,
+        "companyId": "5e7abc6792323e650e6c76e2",
+        "currency": "EUR",
+        "id": "4",
+        "isMaster": false,
+      },
+    ],
   },
   "errors": undefined,
   "extensions": undefined,

@@ -1,6 +1,7 @@
 import { parseDatabaseErrors } from '../database';
 import CardModel from './card.model.js';
 import { ApolloError } from 'apollo-server';
+import { updateWallet } from '../wallet/wallet.controller';
 
 export async function getCards(_, __, { userId }) {
     try {
@@ -11,8 +12,16 @@ export async function getCards(_, __, { userId }) {
     }
 }
 
+export async function getCardById(_, { id }, { userId }) {
+    try {
+        const result = await CardModel.findOne({ id, userId });
+        return result;
+    } catch (error) {
+        parseDatabaseErrors(error);
+    }
+}
+
 export async function createCard(_, card, { userId }) {
-    // prevent negative balance
     try {
         const result = await CardModel.create({ ...card, userId });
         return result;
@@ -21,9 +30,29 @@ export async function createCard(_, card, { userId }) {
     }
 }
 
-export async function blockCard(_, { id }, { userId }) {
+export async function updateCard(_, update, { userId }) {
     try {
-        console.log(id, userId);
+        const card = await getCardById(undefined, update, { userId });
+
+        if (!card) {
+            throw new ApolloError('Card not found.');
+        }
+
+        const updatedBalance = (card.balance + update.amount).toFixed(2);
+        const result = await CardModel.findOneAndUpdate(
+            { id: update.id },
+            { balance: updatedBalance },
+            { new: true }
+        );
+
+        return result;
+    } catch (error) {
+        parseDatabaseErrors(error);
+    }
+}
+
+export async function blockCard(_, { id }, { userId, companyId }) {
+    try {
         const card = await CardModel.findOne({ id, userId });
 
         if (!card) {
@@ -34,7 +63,11 @@ export async function blockCard(_, { id }, { userId }) {
             throw new ApolloError('Card is already blocked.');
         }
 
-        // Transfer money to wallet.
+        const updatedWallet = await updateWallet(
+            undefined,
+            { id: card.walletId, amount: card.balance },
+            { companyId }
+        );
 
         const result = await CardModel.findByIdAndUpdate(
             card._id,
@@ -69,19 +102,6 @@ export async function unblockCard(_, { id }, { userId }) {
             { new: true }
         );
 
-        return result;
-    } catch (error) {
-        parseDatabaseErrors(error);
-    }
-}
-
-export async function addToCard(_, amount) {
-    try {
-        // find card first, then add amount to balance
-        const updatedBalance = amount;
-        const result = await CardModel.findByIdAndUpdate(id, {
-            balance: updatedBalance
-        });
         return result;
     } catch (error) {
         parseDatabaseErrors(error);

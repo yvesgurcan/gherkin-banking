@@ -6,8 +6,9 @@ const CreateCardFields = `
     currency: Currency
 `;
 
-const CardFields = `
+export const CardFields = `
     ${CreateCardFields}
+    walletId: ID
     id: ID
     userId: ID
     number: String
@@ -16,28 +17,22 @@ const CardFields = `
     isBlocked: Boolean
     createdAt: String
     updatedAt: String
-
 `;
 
 export default gql`
-    enum Currency {
-        USD
-        GBP
-        EUR
-    }
-
     type Card {
         ${CardFields}
     }
 
     type Query {
         cards: [Card]
+        cardById(id: ID!): Card
     }
 
     type Mutation {
         createCard(${CreateCardFields}): Card
+        updateCard(id: ID!, amount: Float!): Card
         blockCard(id: ID!): Card
         unblockCard(id: ID!): Card
-        addToCard(amount: Float): Card
     }
 `;

@@ -5,7 +5,7 @@ const CreateWalletFields = `
     currency: Currency
 `;
 
-const WalletFields = `
+export const WalletFields = `
     ${CreateWalletFields}
     id: ID
     companyId: ID
@@ -15,23 +15,18 @@ const WalletFields = `
 `;
 
 export default gql`
-    enum Currency {
-        USD
-        GBP
-        EUR
-    }
-
     type Wallet {
         ${WalletFields}
     }
 
     type Query {
         wallets: [Wallet]
+        walletById(id: ID!): Wallet
     }
 
     type Mutation {
         createWallet(${CreateWalletFields}): Wallet
         createMasterWallets: [Wallet]
-        addToWallet(amount: Float): Card
+        updateWallet(id: ID!, amount: Float!): Card
     }
 `;

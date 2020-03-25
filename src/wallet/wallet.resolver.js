@@ -1,17 +1,19 @@
 import {
     getWallets,
+    getWalletById,
     createWallet,
-    createMasterWallets,
-    addToWallet
+    updateWallet,
+    createMasterWallets
 } from './wallet.controller';
 
 export default {
     Query: {
-        wallets: getWallets
+        wallets: getWallets,
+        walletById: getWalletById
     },
     Mutation: {
         createWallet,
-        createMasterWallets,
-        addToWallet
+        updateWallet,
+        createMasterWallets
     }
 };

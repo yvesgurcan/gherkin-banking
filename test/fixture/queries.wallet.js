@@ -9,9 +9,20 @@ query {
     }
 }`;
 
+export const GET_WALLET_BY_ID = `
+query walletById($id: ID!) {
+    walletById(id: $id) {
+        id
+        companyId
+        balance
+        currency
+        isMaster
+    }
+}`;
+
 export const CREATE_WALLET = `
-mutation createWallet($balance: Float, $currency: Currency, $isMaster: Boolean) {
-    createWallet(balance: $balance, currency: $currency, isMaster: $isMaster) {
+mutation createWallet($balance: Float, $currency: Currency) {
+    createWallet(balance: $balance, currency: $currency) {
         id
         companyId
         balance

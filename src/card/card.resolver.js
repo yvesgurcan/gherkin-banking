@@ -1,19 +1,21 @@
 import {
     getCards,
+    getCardById,
     createCard,
+    updateCard,
     blockCard,
-    unblockCard,
-    addToCard
+    unblockCard
 } from './card.controller';
 
 export default {
     Query: {
-        cards: getCards
+        cards: getCards,
+        cardById: getCardById
     },
     Mutation: {
         createCard,
+        updateCard,
         blockCard,
-        unblockCard,
-        addToCard
+        unblockCard
     }
 };

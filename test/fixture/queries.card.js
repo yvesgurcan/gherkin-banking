@@ -12,6 +12,20 @@ query {
     }
 }`;
 
+export const GET_CARD_BY_ID = `
+query cardById($id: ID!){
+    cardById(id: $id) {
+        walletId
+        userId
+        currency
+        balance
+        number
+        expiration
+        ccv
+        isBlocked
+    }
+}`;
+
 export const CREATE_CARD = `
 mutation createCard($walletId: ID!, $balance: Float, $currency: Currency) {
     createCard(walletId: $walletId, balance: $balance, currency: $currency) {

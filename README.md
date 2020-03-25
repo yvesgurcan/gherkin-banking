@@ -42,6 +42,7 @@ Similarly, functions that rely on randomness will return predictable results whi
 -   Prevent regular users to create master wallets.
 -   Make sure that no more than 1 master wallet can be created per currency.
 -   Check if the `User-Id` and `Company-Id` are valid and authorized.
+-   Handle errors from the exchange rate API.
 
 # Assignment
 
@@ -69,13 +70,13 @@ In the specs, a user represents a frontend client, the API should output the ent
 -   [x] A user can list all his wallets
 -   [x] A user can load or unload money on his card from the wallet
 -   [x] A user can block or unblock a card
--   [ ] Blocking a card will unload all the money into the right wallet
+-   [x] Blocking a card will unload all the money into the right wallet
 -   [x] There is a master wallet per currency
--   [ ] We store fees from transfers in each master wallet (see below)
--   [ ] A user can transfer money between 2 wallets in different currencies
--   [ ] We take a 2.9% fee on the destination currency on this transfer
--   [ ] This fee will go into our master wallet for the given currency
--   [ ] Of course you need to convert the amount (you can user fixer.io or any free API)
+-   [x] We store fees from transfers in each master wallet (see below)
+-   [x] A user can transfer money between 2 wallets in different currencies
+-   [x] We take a 2.9% fee on the destination currency on this transfer
+-   [x] This fee will go into our master wallet for the given currency
+-   [x] Of course you need to convert the amount (you can user fixer.io or any free API)
 -   You don't need to manage users and authentication, just pass both a User-Id and a Company-Id headers with each request and use it to track the money transfers / wallets or cards ownerships.
 -   As you can't use real money, you can load the wallet directly when you
     create it (setting the balance property), it does not work in real life but

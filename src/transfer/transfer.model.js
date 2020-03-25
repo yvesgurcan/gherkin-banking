@@ -11,11 +11,6 @@ export const transferSchema = new mongoose.Schema(
             type: Number,
             default: 0
         },
-        originCurrency: {
-            type: String,
-            enum: ['USD', 'GBP', 'EUR'],
-            default: 'USD'
-        },
         originEntityId: {
             type: castId(),
             required: [true, 'Origin entity identifier is required.']
@@ -25,7 +20,7 @@ export const transferSchema = new mongoose.Schema(
             enum: ['CARD', 'WALLET'],
             required: [true, 'Origin entity type is required.']
         },
-        targetCurrency: {
+        originCurrency: {
             type: String,
             enum: ['USD', 'GBP', 'EUR'],
             default: 'USD'
@@ -38,6 +33,16 @@ export const transferSchema = new mongoose.Schema(
             type: String,
             enum: ['CARD', 'WALLET'],
             required: [true, 'Target entity type is required.']
+        },
+
+        targetCurrency: {
+            type: String,
+            enum: ['USD', 'GBP', 'EUR'],
+            default: 'USD'
+        },
+        userId: {
+            type: castId(),
+            required: [true, 'User identifier is required.']
         }
     },
     {
