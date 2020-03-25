@@ -25,3 +25,29 @@ mutation createCard($walletId: ID!, $balance: Float, $currency: Currency) {
         isBlocked
     }
 }`;
+
+export const BLOCK_CARD = `
+mutation blockCard($id: ID!) {
+    blockCard(id: $id) {
+        userId
+        currency
+        balance
+        number
+        expiration
+        ccv
+        isBlocked
+    }
+}`;
+
+export const UNBLOCK_CARD = `
+mutation unblockCard($id: ID!) {
+    unblockCard(id: $id) {
+        userId
+        currency
+        balance
+        number
+        expiration
+        ccv
+        isBlocked
+    }
+}`;

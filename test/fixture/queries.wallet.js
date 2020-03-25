@@ -19,3 +19,14 @@ mutation createWallet($balance: Float, $currency: Currency, $isMaster: Boolean) 
         isMaster
     }
 }`;
+
+export const CREATE_MASTER_WALLETS = `
+mutation {
+    createMasterWallets {
+        id
+        companyId
+        balance
+        currency
+        isMaster    
+    }
+}`;

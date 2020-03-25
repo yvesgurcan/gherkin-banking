@@ -21,6 +21,18 @@ An Apollo server will start listening for requests at `localhost:4000` and a Mon
 
 You can start the service on its own with `npm run start:service` or the database only at `npm run start:db`.
 
+## Integration tests
+
+    npm test
+
+Running the tests will instantiate a separate Apollo Server and a database for test purposes. In order to pass a test, the output of the query must match the snapshot that was previously saved. To update snapshots:
+
+    npm run test:update
+
+Note that, since MongoDB relies on unique identifiers to avoid collisions, tests that involve foreign keys would systematically fail (snapshots would never match). Therefore, the test database relies on traditional auto-incrementing identifiers instead.
+
+Similarly, functions that rely on randomness will return predictable results while running tests.
+
 ## Features
 
 -   No need to sanitize input. User can not add unallowed fields to the database thanks to the strongly typed GraphQL interface.
@@ -51,18 +63,19 @@ As we're actually moving customers money, we need to track any movement in the d
 
 In the specs, a user represents a frontend client, the API should output the entities as JSON objects.
 
--   A user can create a wallet in USD (\$), GBP (£), or EUR (€)
--   A user can create a card connected to one of his wallets
--   A user can list all his cards
--   A user can list all his wallets
--   A user can load or unload money on his card from the wallet
--   A user can block or unblock a card, blocking it will unload all the money into the right wallet
--   There is a master wallet per currency where we store fees from transfers (see below)
--   A user can transfer money between 2 wallets in different currencies
--   We take a 2.9% fee on the destination currency on this transfer
--   This fee will go into our master wallet for the given currency
--   Of course you need to convert the amount (you can user fixer.io or
-    any free API)
+-   [x] A user can create a wallet in USD (\$), GBP (£), or EUR (€)
+-   [x] A user can create a card connected to one of his wallets
+-   [x] A user can list all his cards
+-   [x] A user can list all his wallets
+-   [ ] A user can load or unload money on his card from the wallet
+-   [x] A user can block or unblock a card
+-   [ ] Blocking a card will unload all the money into the right wallet
+-   [x] There is a master wallet per currency
+-   [ ] We store fees from transfers in each master wallet (see below)
+-   [ ] A user can transfer money between 2 wallets in different currencies
+-   [ ] We take a 2.9% fee on the destination currency on this transfer
+-   [ ] This fee will go into our master wallet for the given currency
+-   [ ] Of course you need to convert the amount (you can user fixer.io or any free API)
 -   You don't need to manage users and authentication, just pass both a User-Id and a Company-Id headers with each request and use it to track the money transfers / wallets or cards ownerships.
 -   As you can't use real money, you can load the wallet directly when you
     create it (setting the balance property), it does not work in real life but
