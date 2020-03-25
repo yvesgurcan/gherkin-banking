@@ -1,15 +1,19 @@
 import mongoose from 'mongoose';
-import { ObjectId } from 'mongodb';
-import { generateRandomNumber } from '../util';
+import {
+    castId,
+    autoIncrement,
+    generateRandomNumber,
+    generateExpirationDate
+} from '../util';
 
-const cardSchema = new mongoose.Schema(
+export const cardSchema = new mongoose.Schema(
     {
         walletId: {
-            type: ObjectId,
+            type: castId(),
             required: [true, 'Wallet identifier is required.']
         },
         userId: {
-            type: ObjectId,
+            type: castId(),
             required: [true, 'User identifier is required.']
         },
         balance: {
@@ -30,7 +34,7 @@ const cardSchema = new mongoose.Schema(
         },
         expiration: {
             type: Date,
-            default: new Date() // add 1 month
+            default: generateExpirationDate()
         },
         ccv: {
             type: String,
@@ -49,8 +53,6 @@ const cardSchema = new mongoose.Schema(
     }
 );
 
-cardSchema.virtual('id').get(function() {
-    return this._id.toHexString();
-});
+autoIncrement(cardSchema, 'card_id');
 
 export default mongoose.model('Card', cardSchema);

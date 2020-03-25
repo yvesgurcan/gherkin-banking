@@ -36,6 +36,8 @@ export default gql`
 
     type Mutation {
         createCard(${CreateCardFields}): Card
+        blockCard(id: ID!): Card
+        unblockCard(id: ID!): Card
         addToCard(amount: Float): Card
     }
 `;

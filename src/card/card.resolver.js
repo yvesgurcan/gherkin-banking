@@ -1,4 +1,10 @@
-import { getCards, createCard, addToCard } from './card.controller';
+import {
+    getCards,
+    createCard,
+    blockCard,
+    unblockCard,
+    addToCard
+} from './card.controller';
 
 export default {
     Query: {
@@ -6,8 +12,8 @@ export default {
     },
     Mutation: {
         createCard,
+        blockCard,
+        unblockCard,
         addToCard
-        // blockCard
-        // unblockCard
     }
 };
