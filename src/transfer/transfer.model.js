@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
-import { ObjectId } from 'mongodb';
+import { castId, autoIncrement } from '../util';
 
-const transferSchema = new mongoose.Schema(
+export const transferSchema = new mongoose.Schema(
     {
         amount: {
             type: Number,
@@ -17,7 +17,7 @@ const transferSchema = new mongoose.Schema(
             default: 'USD'
         },
         originEntityId: {
-            type: ObjectId,
+            type: castId(),
             required: [true, 'Origin entity identifier is required.']
         },
         originEntityType: {
@@ -31,7 +31,7 @@ const transferSchema = new mongoose.Schema(
             default: 'USD'
         },
         targetEntityId: {
-            type: ObjectId,
+            type: castId(),
             required: [true, 'Target entity identifier is required.']
         },
         targetEntityType: {
@@ -46,8 +46,6 @@ const transferSchema = new mongoose.Schema(
     }
 );
 
-transferSchema.virtual('id').get(function() {
-    return this._id.toHexString();
-});
+autoIncrement(transferSchema, 'transfer_id');
 
 export default mongoose.model('Transfer', transferSchema);
