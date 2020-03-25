@@ -11,4 +11,4 @@ const sharedSchema = gql`
     }
 `;
 
-export default [sharedSchema, cardSchema, transferSchema, walletSchema];
+export default [sharedSchema, walletSchema, cardSchema, transferSchema];
