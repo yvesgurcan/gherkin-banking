@@ -10,6 +10,7 @@ export async function createDatabaseConnection(dbName = 'gherkin-banking') {
         useNewUrlParser: true,
         useUnifiedTopology: true
     });
+
     console.log(`🌿  Mongoose Database ready at ${url}.`);
     return connection;
 }
@@ -34,7 +35,7 @@ export function parseDatabaseErrors(error) {
     }
 
     if (error) {
-        return error;
+        throw new ApolloError(error);
     }
 
     return null;
