@@ -1,5 +1,3 @@
-🥒 Bring the power of the cucumber to your wallet!
-
 ## Main dependencies
 
 -   Node
