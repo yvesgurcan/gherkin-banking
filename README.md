@@ -136,9 +136,12 @@ Similarly, functions that rely on randomness or relative dates will return predi
 ## Other things I would do with more time
 
 -   Make sure that no more than 1 master wallet can be created per currency.
--   Handle the creation of users and companies in the database.
--   Check if the `user-id` and `company-id` headers are valid and the request authorized.
 -   Handle errors if the exchange rate API was down or took too long to respond.
+-   Handle the creation of users and companies in the database. Possible in a separate micro-service.
+-   Check if the `user-id` and `company-id` headers are valid and the request authorized.
+-   Add monitoring (with Datadog or Kibana).
+-   Add a CloudFormation template to make the service deployable to AWS as an EC2 instance or a [Lambda](https://www.apollographql.com/docs/apollo-server/deployment/lambda/) (and also look into using Mongo Atlas).
+- Turn the core of the API into a re-usable dependency that can be used to create other micro-services.
 
 # Assignment
 
