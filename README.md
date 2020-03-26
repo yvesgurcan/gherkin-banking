@@ -51,7 +51,7 @@ For each data type, you will find the following structure in the source code:
 
 ### Schema
 
-The schema is a self-documenting script that visually represents the interface and data structure exposed for each data type. In each `*.schema.js` file, you will find the following elements:
+The [schema](https://graphql.org/learn/schema/) is a self-documenting script that visually represents the interface and data structure exposed for each data type. In each `*.schema.js` file, you will find the following elements:
 
 -   A definition of the fields that constitute the data type (e.g., for wallets you will find this information under the `Wallet` type in the file).
 -   How this data type can be queried and what the query returns (under the `Query` type).
@@ -60,8 +60,6 @@ The schema is a self-documenting script that visually represents the interface a
 The fact that GraphQL is a [strongly typed query language](https://blog.logrocket.com/defining-types-for-your-graphql-api/) provides the same advantage as other strongly typed languages when it comes to developing (and discovering) the API.
 
 Additionally, the ability to carefully choose which database fields are exposed for each data type minimizes the need to sanitize the input. For example, it is safe to group together the data related to both user wallets and master wallets, since the mutation that enables to create a user wallet ignores the `isMaster` field. There is no risk that a user creates a master wallet using the `createWallet` mutation and there is no need to write more code to handle what could be a safety issue in a REST API.
-
-[Read more on GraphQL schemas.](https://graphql.org/learn/schema/)
 
 ### Model
 
