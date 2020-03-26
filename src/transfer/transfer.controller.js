@@ -141,7 +141,6 @@ async function handleConversion(amount, originCurrency, targetCurrency) {
             currency: targetCurrency
         };
         const updated = await updateMasterWallet(undefined, update);
-        console.log({ updated });
     }
 
     return {

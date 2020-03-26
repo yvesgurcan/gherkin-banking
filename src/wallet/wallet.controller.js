@@ -61,7 +61,6 @@ export async function updateMasterWallet(_, update) {
             throw new ApolloError('Master wallet not found.');
         }
 
-        console.log(masterWallet.balance + update.amount);
         const updatedBalance = (masterWallet.balance + update.amount).toFixed(
             2
         );
@@ -91,7 +90,6 @@ export async function createMasterWallets() {
         }
         return results;
     } catch (error) {
-        console.log({ error });
         parseDatabaseErrors(error);
     }
 }
