@@ -73,7 +73,7 @@ A couple of the features that help us handling data for this application are the
 -   The ability to impose tighter constraints on the data (for example, the length of a string) comes in very handy as well.
 -   Even better, Mongoose plays a great role in making sure that we can write integration tests reliably without having to mock database behaviors.
 
-## Resolver map
+### Resolver map
 
 [Resolvers](https://www.apollographql.com/docs/graphql-tools/resolvers/) are a central piece of GraphQL. In this application, the resolver map of each data type (`*.resolver.js`) simply represents the connection between what we call the controller and the schema.
 
