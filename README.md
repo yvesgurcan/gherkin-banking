@@ -107,7 +107,7 @@ The logic that relates to the configuration of the API can be found in the vario
     ├── util.js
 ```
 
--   The `resolvers` and `schema` files combine together the schema and resolvers of each data type. The schema file also contains types that are shared among the data types.
+-   The `resolvers` and `schema` files combine together the schema and resolvers of all the data type. The schema file also contains types that are shared among the data types.
 -   The `database` file contains functions to connect to and disconnect from the data store. It also contains a function to drop the database, which is particularly useful when testing or developing the API.
 -   The `server` file contains the logic you need to get the Apollo server started.
 -   The `index` file brings the server and the database together and start the whole API.
