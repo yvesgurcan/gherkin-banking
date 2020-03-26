@@ -113,7 +113,7 @@ The logic that relates to the configuration of the API can be found in the vario
 -   The `index` file brings the server and the database together and start the whole API.
 -   The `util` file contains miscellani functions that can be useful in different parts of the API.
 
-In addition to the API configuration, this project also contains at its root several config files relates to the tools that are used to develop it:
+In addition to the API configuration, this project also contains at its root several config files related to the tools that are used to develop it:
 
 -   NPM: `package.json` and `package-lock.json`
 -   Babel: `babel.config.js`
