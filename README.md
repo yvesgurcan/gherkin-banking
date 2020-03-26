@@ -143,47 +143,18 @@ Similarly, functions that rely on randomness or relative dates will return predi
 -   Add a CloudFormation template to make the service deployable to AWS as an EC2 instance or a [Lambda](https://www.apollographql.com/docs/apollo-server/deployment/lambda/) (and also look into using Mongo Atlas).
 - Turn the core of the API into a re-usable dependency that can be used to create other micro-services.
 
-# Assignment
-
-Our developers need to be experts at designing the right solution for any problem we have. As you would be a backend developper, your work will mostly be giving our user the power over their financial data, and this will be done through APIs.
-
-This test has been made to give you an overview of some of the subjects you would work on, and we expect you to deliver a state of the art solution to the problem, including a documentation (yes, APIs come with documentation, think about the frontend team).
-
-## The problem
-
-Customers have wallets, each of them representing a bank account in a specific currency.
-
-Like with your own bank, each card you create will be connected to one of your wallets. Because the cards are prepaid, they need to be loaded with money before being used to pay on a merchant's website.
-
-You may have guessed, we need an API to manage the cards and the transfers between wallets.
-
-As we're actually moving customers money, we need to track any movement in the database carefully, especially who executed the transfer 👀.
-
 ## Specs
 
-In the specs, a user represents a frontend client, the API should output the entities as JSON objects.
-
--   [x] A user can create a wallet in USD (\$), GBP (£), or EUR (€)
--   [x] A user can create a card connected to one of his wallets
--   [x] A user can list all his cards
--   [x] A user can list all his wallets
--   [x] A user can load or unload money on his card from the wallet
--   [x] A user can block or unblock a card
--   [x] Blocking a card will unload all the money into the right wallet
--   [x] There is a master wallet per currency
--   [x] We store fees from transfers in each master wallet (see below)
--   [x] A user can transfer money between 2 wallets in different currencies
--   [x] We take a 2.9% fee on the destination currency on this transfer
--   [x] This fee will go into our master wallet for the given currency
--   [x] Of course you need to convert the amount (you can user fixer.io or any free API)
--   You don't need to manage users and authentication, just pass both a User-Id and a Company-Id headers with each request and use it to track the money transfers / wallets or cards ownerships.
--   As you can't use real money, you can load the wallet directly when you
-    create it (setting the balance property), it does not work in real life but
-    whatever!
+-   A user can create a wallet in USD (\$), GBP (£), or EUR (€).
+-   A user can create a card connected to one of his wallets.
+-   A user can list all his cards.
+-   A user can list all his wallets.
+-   A user can load or unload money on his card from the wallet.
+-   A user can block or unblock a card. Blocking a card will unload all the money into the right wallet.
+-   There is a master wallet per currency. We store fees from transfers in each master wallet.
+-   A user can transfer money between 2 wallets in different currencies. The amount is converted. We take a 2.9% fee on the destination currency on this transfer. This fee goes into our master wallet for the given currency.
 
 ## Data structures
-
-These are the mandatory fields for each entity, you can add as many as you want (even other entities if you need).
 
 ### Wallet 💰
 
@@ -217,22 +188,3 @@ These are the mandatory fields for each entity, you can add as many as you want 
 -   Origin entity type (card or wallet)
 -   Target entity identifier
 -   Target entity type (card or wallet)
-
-## Expected output
-
-You can write your code in any language and with any framework, we are mostly working with Javascript. Don't scratch your head too hard, a classic MVC architecture works well, just make sure to have everything ready so we can install your application and start testing it.
-
--   Your source code, ideally on a Github repository but a ZIP works as well
--   A getting-started guide, how to install your API, the technologies we may need (database, runtime...)
--   A documentation of the endpoints
-
-Bonus:
-
--   You handle the errors correctly on the API if we send random data
--   You wrote some tests
-
-## Advice
-
--   If you struggle on a specific point don't spend 2 hours on it, leave it aside and get back to it at the end
--   If you have a question please send your contact an email
--   This test is a real use case, put the same attention to this test that you would in your real work
