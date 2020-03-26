@@ -154,9 +154,9 @@ Similarly, functions that rely on randomness or relative dates will return predi
 -   There is a master wallet per currency. We store fees from transfers in each master wallet.
 -   A user can transfer money between 2 wallets in different currencies. The amount is converted. We take a 2.9% fee on the destination currency on this transfer. This fee goes into our master wallet for the given currency.
 
-## Data structures
+### Data structures
 
-### Wallet 💰
+#### Wallet 💰
 
 -   Unique identifier
 -   Current balance
@@ -164,7 +164,7 @@ Similarly, functions that rely on randomness or relative dates will return predi
 -   Company identifier
 -   Is master wallet (a boolean to know if it's ours for the fees)
 
-### Card 💳
+#### Card 💳
 
 -   Unique identifier
 -   Wallet identifier
@@ -176,7 +176,7 @@ Similarly, functions that rely on randomness or relative dates will return predi
 -   User identifier (a card is associated to a user)
 -   Status (blocked or not)
 
-### Transfer
+#### Transfer 💸
 
 -   Unique identifier
 -   Timestamp
