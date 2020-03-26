@@ -69,7 +69,7 @@ The model is the representation of this data type from the perspective of the da
 
 A couple of the features that help us handling data for this application are the following:
 
--   The ability to provide default values to fields allows to field the gap between the fields that are not exposed by the API and yet necessary for the application. A great example of default values can be seen in `card.model.js`, where Mongoose enables us to generate card numbers, card verification codes, and expiration dates straight from the model.
+-   The ability to provide default values to fields allows to fill the gap between the fields that are not exposed by the API and yet necessary for the application. A great example of default values can be seen in `card.model.js`, where Mongoose enables us to generate card numbers, card verification codes, and expiration dates straight from the model.
 -   The ability to impose tighter constraints on the data (for example, the length of a string) comes in very handy as well.
 -   Even better, Mongoose plays a great role in making sure that we can write integration tests reliably without having to mock database behaviors.
 
